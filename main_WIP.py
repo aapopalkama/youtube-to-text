@@ -58,7 +58,7 @@ def Download(link) -> str:
         print("Lets start processing the video")
         return title
 def OpenAi_fetct(sentence:str) -> dict:
-        api_key = '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'
+        api_key = '<Your API_KEY>'
         openai.api_key = api_key
         response = openai.Completion.create(
           engine="text-davinci-003",
