@@ -81,6 +81,7 @@ def clean_data(RAW_TEXT):
     df['Result'] = df['Result'].str.replace(r'\[', r'["').str.replace(r'\]', r'"]').str.replace(r',', r'", "')
     df['Result'] = df['Result'].str.replace(r'""', r'"')
     df['Result'] = df['Result'].str.replace(r']"', r']').str.replace(r'"\[', r'[')
+    df['Result'] = df['Result'].str.replace(r'sign":', r'sign":"').str.replace(r'}', r'"}')
     save_to_file(df)
     return
 def save_to_file(df:pd.DataFrame):
