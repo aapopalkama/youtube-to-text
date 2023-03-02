@@ -27,7 +27,7 @@ import ast
 import matplotlib.pyplot as plt
 
 #Read csv file
-df = pd.read_csv('<your_file_name>.csv')
+df = pd.read_csv('file_name.csv')
 df['Result'] = df['Result'].str.replace(r'sign":', r'sign":"').str.replace(r'}', r'"}')
 
 def extract_dict(s):
@@ -40,22 +40,31 @@ def extract_dict(s):
 # Apply the function to Result to extract the dictionary
 df["dict"] = df["Result"].apply(extract_dict)
 
+# remove numbers from the key words
+
+
+
 
 df["key_words"] = df["dict"].apply(lambda x: x["key_words"] if x is not None else None)
 df["sign"] = df["dict"].apply(lambda x: x["sign"] if x is not None else None)
 df["Status"] = df["dict"].apply(lambda x: 1 if x is not None else 0)
 key_word_counter = {}
 [key_word_counter.update({key_word: key_word_counter.get(key_word, 0) + 1}) for index, row in df.iterrows() if row['Status'] == 1 for key_word in row['key_words']]
+# Remove numbers from the key words
+key_word_counter = {key: value for key, value in key_word_counter.items() if not key.isdigit()}
+
 sorted_data = dict(sorted(key_word_counter.items(), key=lambda x: x[1], reverse=True)[:25])
 
 # Create a bar chart
 plt.bar(sorted_data.keys(), sorted_data.values())
-plt.title("Top 25 Key-Value Pairs")
-plt.xlabel("Keys")
-plt.ylabel("Values")
+plt.title("Top 25 key_words")
+plt.xlabel("Words")
+plt.ylabel("Count")
 plt.xticks(rotation=60)
+plt.xticks(fontsize=8)
+plt.tight_layout()
 plt.show()
-plt.savefig('chart.png')
+
 ```
 
 # Result:
