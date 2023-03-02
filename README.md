@@ -1,11 +1,10 @@
 # youtube-to-text (WIP)
 
+* This code is designed to perform several different functions related to YouTube videos. Firstly, it is able to fetch videos from YouTube and save them for later use. Once the videos have been saved, the code is then able to extract the audio from the videos and convert it into text. This is accomplished using a speech-to-text conversion algorithm.
 
-This code is designed to perform several different functions related to YouTube videos. Firstly, it is able to fetch videos from YouTube and save them for later use. Once the videos have been saved, the code is then able to extract the audio from the videos and convert it into text. This is accomplished using a speech-to-text conversion algorithm.
+* Once the video audio has been converted to text, the code can then search for a specific keyword or set of keywords within the text. This is done using the OpenAI API, which allows for advanced natural language processing and keyword analysis.
 
-Once the video audio has been converted to text, the code can then search for a specific keyword or set of keywords within the text. This is done using the OpenAI API, which allows for advanced natural language processing and keyword analysis.
-
-Overall, this code is a powerful tool for anyone looking to extract useful information from YouTube videos. It can be used for a wide range of purposes, from data analysis to market research and more. By combining YouTube video fetching, speech-to-text conversion, and keyword analysis, this code provides a comprehensive solution for anyone looking to gain valuable insights from video content.
+* Overall, this code is a powerful tool for anyone looking to extract useful information from YouTube videos. It can be used for a wide range of purposes, from data analysis to market research and more. By combining YouTube video fetching, speech-to-text conversion, and keyword analysis, this code provides a comprehensive solution for anyone looking to gain valuable insights from video content.
 
 
 # Example:
@@ -21,7 +20,7 @@ In this example, we used the code to fetch and analyze a set of 5 YouTube videos
 
 
 
-* Simple Python code:
+# Simple Python code:
 ```
 import pandas as pd
 import ast
@@ -59,7 +58,9 @@ plt.show()
 plt.savefig('chart.png')
 ```
 
-* Result
+# Result:
 
-![chart](https://user-images.githubusercontent.com/71639133/222536338-04fdf07c-67bc-41b5-9be3-a06ab87659e4.png)
+![Figure_1](https://user-images.githubusercontent.com/71639133/222538135-36ed2e6d-6e00-483d-b02f-4a240c9f253d.png)
 
+# Conclusion:
+ * In conclusion, the code provided works well and can be adjusted to suit a variety of use cases. By analyzing the transcription of YouTube or any and identifying the most frequently used keywords, it is possible to gain valuable insights into trends and themes related to a particular topic or industry. With some adjustments and fine-tuning, this code can be a powerful tool for anyone looking to analyze video content and identify key trends and insights.
