@@ -72,4 +72,4 @@ plt.show()
 ![Figure_1](https://user-images.githubusercontent.com/71639133/222538135-36ed2e6d-6e00-483d-b02f-4a240c9f253d.png)
 
 # Conclusion:
- * In conclusion, the code provided works well and can be adjusted to suit a variety of use cases. By analyzing the transcription of YouTube or any and identifying the most frequently used keywords, it is possible to gain valuable insights into trends and themes related to a particular topic or industry. With some adjustments and fine-tuning, this code can be a powerful tool for anyone looking to analyze video content and identify key trends and insights.
+ * The code provided works pretty well and can be adjusted to suit a variety of use cases. By analyzing the transcription of YouTube or any and identifying the most frequently used keywords, it is possible to gain valuable insights into trends and themes related to a particular topic or industry. With some adjustments and fine-tuning, this code can be a powerful tool for anyone looking to analyze video content and identify key trends and insights.
