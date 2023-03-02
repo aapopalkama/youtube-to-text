@@ -19,3 +19,47 @@ In this example, we used the code to fetch and analyze a set of 5 YouTube videos
   * https://www.youtube.com/watch?v=iwyyxEJCIuU / Search word: Web3 Mark Zuckerberg
   * https://www.youtube.com/watch?v=wHTcrmhskto / Search word: Web 3 Future
 
+
+
+* Simple Python code:
+```
+import pandas as pd
+import ast
+import matplotlib.pyplot as plt
+
+#Read csv file
+df = pd.read_csv('<your_file_name>.csv')
+df['Result'] = df['Result'].str.replace(r'sign":', r'sign":"').str.replace(r'}', r'"}')
+
+def extract_dict(s):
+    try:
+        d = ast.literal_eval(s)
+    except:
+        d = None
+    return d
+
+# Apply the function to Result to extract the dictionary
+df["dict"] = df["Result"].apply(extract_dict)
+
+
+df["key_words"] = df["dict"].apply(lambda x: x["key_words"] if x is not None else None)
+df["sign"] = df["dict"].apply(lambda x: x["sign"] if x is not None else None)
+df["Status"] = df["dict"].apply(lambda x: 1 if x is not None else 0)
+key_word_counter = {}
+[key_word_counter.update({key_word: key_word_counter.get(key_word, 0) + 1}) for index, row in df.iterrows() if row['Status'] == 1 for key_word in row['key_words']]
+sorted_data = dict(sorted(key_word_counter.items(), key=lambda x: x[1], reverse=True)[:25])
+
+# Create a bar chart
+plt.bar(sorted_data.keys(), sorted_data.values())
+plt.title("Top 25 Key-Value Pairs")
+plt.xlabel("Keys")
+plt.ylabel("Values")
+plt.xticks(rotation=60)
+plt.show()
+plt.savefig('chart.png')
+```
+
+* Result
+
+![chart](https://user-images.githubusercontent.com/71639133/222536338-04fdf07c-67bc-41b5-9be3-a06ab87659e4.png)
+
